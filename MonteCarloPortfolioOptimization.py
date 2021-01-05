@@ -4,14 +4,17 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from pandas_datareader import data, wb
+from pandas_datareader import data
 import matplotlib.pyplot as plt
+import time
 
 import scipy.optimize as sco
 from scipy import stats
 
 #Select assets
-tickers = ['TSLA', 'APHA', 'QQQ', 'AAPL', 'DAL', 'WFC', 'QCOM', 'BAM', 'GOLD']
+tickers = ['ROKU', 'NVDA', 'WFC', 'AAPL']
+
+start = time.time()
 
 #Sepecify start and end date
 start = datetime(2010, 1, 1)
@@ -86,3 +89,7 @@ plt.scatter(min_vol_port[1],min_vol_port[0],marker=(5,1,0),color='g',s=500)
 print(max_sharpe_port.to_frame().T)
 
 print(min_vol_port.to_frame().T)
+
+end = time.time()
+
+print(end - start)
